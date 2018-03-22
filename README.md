@@ -10,9 +10,7 @@ The primary workflow is as follows:
 
 A few prerequisites & considerations:
 
-*Download all libraries indicated in the python files
-
-*Create a directory titled 'xml' in the program directory. This is where the temp RSS file will be held (although I might remove this).
+*Download all libraries indicated in the python files.
 
 *Existing database is titled tweet.db and is used running SQLITE3. tweet_store.py will create tables on first run.
 
@@ -22,5 +20,5 @@ The original vision for this program is that it should be run via crontab with c
 
 30 4 * * * source /path/to/file/source.sh > dev/null
 
-0 * * * * python /path/to/file/tweet_write.py
+0 * * * * python /path/to/file/tweet_write.py > dev/null
 
