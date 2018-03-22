@@ -6,8 +6,6 @@ from shutil import copyfile
 import os
 import sqlite3
 
-rss_save='xml/rss_out.xml'
-
 #database check
 conn = sqlite3.connect('tweet.db')
 c = conn.cursor()
@@ -52,7 +50,7 @@ def tweet_check(db, url_in):
         return True
     
 print('Retrieving most recent RSS feed...')
-r = open('xml/tmp.xml','r')
+r = open('tmp.xml','r')
 t = ET.parse(r)
 
 print('Writing tweets to database...')
@@ -67,5 +65,5 @@ for item in t.getroot().findall('channel/item'):
         print('Record already in archive. Skipping...')
 
 print('Removing temp RSS file...')
-os.remove('xml/tmp.xml')
+os.remove('tmp.xml')
 
