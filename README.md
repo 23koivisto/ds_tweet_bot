@@ -18,7 +18,7 @@ A few prerequisites & considerations:
 
 The original vision for this program is that it should be run via crontab with commands to the effect of:
 
-30 4 * * * source /path/to/file/source.sh > dev/null
+`30 4 * * * source /path/to/file/source.sh > dev/null`
 
-0 * * * * python /path/to/file/tweet_write.py > dev/null
+`0 * * * * python /path/to/file/tweet_write.py > dev/null`
 
