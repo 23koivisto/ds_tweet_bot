@@ -20,5 +20,5 @@ The original vision for this program is that it should be run via crontab with c
 
 `30 4 * * * source /path/to/file/source.sh > dev/null`
 
-`0 * * * * python /path/to/file/tweet_write.py > dev/null`
+`0 * * * * python3 /path/to/file/tweet_write.py > dev/null`
 
