@@ -14,7 +14,7 @@ A few prerequisites & considerations:
 
 * Existing database is titled tweet.db and is used running SQLITE3. tweet_store.py will create tables on first run.
 
-* tweet_write.py will require you Twitter application keys. If you are not familiar with creating Twitter apps, check out the [following guide](https://www.digitalocean.com/community/tutorials/how-to-create-a-twitter-app).
+* tweet_write.py will require your Twitter application keys. If you are not familiar with creating Twitter apps, check out the [following guide](https://www.digitalocean.com/community/tutorials/how-to-create-a-twitter-app).
 
 The original vision for this program is that it should be run via crontab with commands to the effect of:
 
