@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
-import sys
+#import sys
 import xml.etree.ElementTree as ET
-from shutil import copyfile
-import os
+#from shutil import copyfile
+#import os
 import sqlite3
+import requests
 
 #database check
 conn = sqlite3.connect('tweet.db')
@@ -50,12 +51,13 @@ def tweet_check(db, url_in):
         return True
     
 print('Retrieving most recent RSS feed...')
-r = open('tmp.xml','r')
-t = ET.parse(r)
+base_url = "https://mdsoar.org/feed/rss_2.0/site"
+r = requests.get(base_url)
+root = ET.fromstring(r.content)
 
 print('Writing tweets to database...')
 
-for item in t.getroot().findall('channel/item'):
+for item in root.iter('item'):
     url=item.find('link').text
     title=item.find('title').text
     if tweet_check('tweet.db', url) == False:
@@ -64,6 +66,4 @@ for item in t.getroot().findall('channel/item'):
     else:
         print('Record already in archive. Skipping...')
 
-print('Removing temp RSS file...')
-os.remove('tmp.xml')
 
